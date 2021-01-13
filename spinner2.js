@@ -1,9 +1,26 @@
-const charArr = ['\r|   ', '\r/   ', '\r-   ', '\r\\   ', '\r|   \n'];
-const spinner2 = function(str, delayTime) {
-  // process.stdout.write(str[0]);
-  setTimeout(() => { process.stdout.write(str[0]); }, 100);
-  for (let i = 0; i < str.length - 1; i++) {
-    setTimeout(() => { process.stdout.write(str[i + 1]); }, delayTime += 200); //here
+const spinner2 = function() {
+  const charArr = ['\r|   ', '\r/   ', '\r-   ', '\r\\   ', '\r|   \n'];
+  let delayTime = 100;
+  for (let i = 0; i < charArr.length; i++) { 
+    setTimeout(() => {
+      process.stdout.write(charArr[i]);
+    }, delayTime);
+    delayTime += 200;
   }
 };
-spinner2(charArr, 100);
+
+
+
+
+
+
+//Trying with recursion (unfinished)
+//spinner2();
+
+// function spinnerV2 (n=5,charArr = ['\r1   ', '\r2   ', '\r3   ', '\r4   ', '\r5   ']) {
+//   if (n >= 0) {
+//     spinnerV2(n-1, charArr);
+//     console.log(charArr[n]);
+//   }
+// }
+// spinnerV2();
